@@ -1,15 +1,15 @@
-workspace "MyOpenGLProject"
+workspace "BlankProject"
     architecture "x64"
     configurations { "Debug", "Release" }
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "MyOpenGLProject"
-    location "MyOpenGLProject"
+project "BlankProject"
+    location "BlankProject"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++20"
-    
+
     targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir)
 
@@ -32,7 +32,12 @@ project "MyOpenGLProject"
         "%{prj.location}/vendor/glm/glm/**.hpp",
         "%{prj.location}/vendor/glm/glm/**.inl",
         "%{prj.location}/vendor/imgui/*.h",
-        "%{prj.location}/vendor/imgui/*.cpp"
+        "%{prj.location}/vendor/imgui/*.cpp",
+        "%{prj.location}/vendor/imgui/backends/imgui_impl_opengl3.h",
+        "%{prj.location}/vendor/imgui/backends/imgui_impl_opengl3.cpp",
+        "%{prj.location}/vendor/imgui/backends/imgui_impl_opengl3_loader.h",
+        "%{prj.location}/vendor/imgui/backends/imgui_impl_glfw.h",
+        "%{prj.location}/vendor/imgui/backends/imgui_impl_glfw.cpp"
     }
 
     includedirs {
