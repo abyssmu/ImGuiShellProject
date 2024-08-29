@@ -5,14 +5,13 @@
 
 int main(int, char**)
 {
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	int width = 1280;
 	int height = 720;
-	string name = "Physics Sim";
-	bool demo = true;
+	std::string name = "Physics Sim";
+	bool demo = false;
 
-	unique_ptr<App::Application> app{ new App::Application(width, height, name) };
-	app->Run(demo);
+	std::unique_ptr<App::Application> app = std::make_unique<App::Application>();
+	if(app->Init(name, width, height)) app->Run(demo);
 
 	return 0;
 }
